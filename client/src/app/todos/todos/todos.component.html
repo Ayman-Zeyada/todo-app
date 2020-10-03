@@ -1,0 +1,50 @@
+<section class="todos">
+  <div class="todos__main">
+    <app-day-header [dayDate]="today"></app-day-header>
+    <ng-scrollbar class="scroll-event" thumbClass="white-scrollbars">
+      <div class="todos__list">
+        <app-todo-item
+          *ngFor="let todo of todos; let index = index"
+          [todo]="todo"
+          (deleteTodo)="deleteTodo(todo, index)"
+          (editTodo)="onEdit(todo, index)"
+        ></app-todo-item>
+      </div>
+    </ng-scrollbar>
+  </div>
+  <div class="btn-wrapper">
+    <button class="btn btn--circle" (click)="openModal(false)">
+      +
+    </button>
+  </div>
+  <div class="body-bg"></div>
+</section>
+
+<app-modal [id]="modalId" [size]="'sm'" [dismissable]="false">
+  <div class="modal__header">
+    <h4>Add New Todo!</h4>
+  </div>
+  <div class="modal__body">
+    <div
+      class="form-group"
+      [class.form-group--invalid]="title.invalid && title.touched"
+    >
+      <label for="title" class="form-group__label">Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-group__control"
+        autocomplete="off"
+        appAutoFocus
+        [formControl]="title"
+      />
+      <span class="form-group__feedback">This is required</span>
+    </div>
+  </div>
+  <div class="modal__footer">
+    <button class="btn btn--secondary" (click)="closeModal(modalId)">
+      Cancel
+    </button>
+    <button class="btn btn--primary" (click)="invokeAction()">Add</button>
+  </div>
+</app-modal>

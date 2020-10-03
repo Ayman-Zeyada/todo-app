@@ -1,0 +1,24 @@
+<div class="todo" [class.todo--done]="todo.isDone">
+  <div class="todo__title">{{ todo.title }}</div>
+  <div class="todo__actions" [class.todo__actions--opened]="actionsOpened">
+    <button
+      class="btn btn--link btn--more"
+      (click)="openActions()"
+      (keydown)="onKeyDown($event)"
+    >
+      <i class="icon-more"></i>
+    </button>
+    <button class="btn btn--link btn--done" *ngIf="!todo.isDone" (click)="toggleDone(true)">
+      <i class="icon-done"></i>
+    </button>
+    <button class="btn btn--link btn--done" *ngIf="todo.isDone" (click)="toggleDone(false)">
+      <i class="icon-reload"></i>
+    </button>
+    <button class="btn btn--link btn--edit" (click)="edit()">
+      <i class="icon-pencil"></i>
+    </button>
+    <button class="btn btn--link btn--delete" (click)="delete()">
+      <i class="icon-delete"></i>
+    </button>
+  </div>
+</div>

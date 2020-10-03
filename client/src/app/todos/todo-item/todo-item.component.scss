@@ -1,0 +1,56 @@
+.todo {
+  padding: 1rem 0 1rem 1rem;
+  border-bottom: 1px solid #f1f1ff;
+  position: relative;
+  overflow: hidden;
+  &__actions {
+    position: absolute;
+    padding: 0.2rem;
+    right: -8.9rem;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
+    border: 2px solid #dcdde1;
+    border-right: none;
+    display: flex;
+    transition: all 0.15s ease-in-out;
+    &--opened {
+        right: 0;
+    }
+    .btn {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      min-width: auto;
+      margin-right: 0.4rem;
+      &:last-child {
+          margin-right: 0;
+      }
+      &--more {
+        background-color: #273c75;
+        color: #dcdde1;
+      }
+      &--done {
+          color: #4cd137;
+      }
+      &--edit {
+        color: #fbc531;
+      }
+      &--delete {
+        color: #c23616;
+      }
+      i {
+          font-size: 1.2rem;
+      }
+    }
+  }
+  &--done {
+    background-color: #dcdde1;
+    .todo__title {
+      color: #718093;
+      text-decoration: line-through;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.day-header {
+    display: flex;
+    align-items: center;
+    padding: 2rem 1rem 1rem;
+    text-transform: uppercase;
+    &__day-date {
+        font-size: 3rem;
+        margin-right: 0.5rem;
+    }
+    &__day-date, &__month, &__day-name {
+        font-weight: 600;
+    }
+    &__day-name {
+        margin-left: auto;
+    }
+}
