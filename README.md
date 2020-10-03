@@ -1,2 +1,2 @@
 # todo-app
-A todo app created using the MEAN stack technologies.
+A todo app created using the MEAN stack technologies...
