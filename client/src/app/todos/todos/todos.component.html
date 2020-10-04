@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="modal__footer">
-    <button class="btn btn--secondary" (click)="closeModal(addEditTodoModalId)">
+    <button class="btn btn--secondary" (click)="closeModal(addEditTodoModalId, true)">
       {{ 'COMMON.CANCEL' | translate }}
     </button>
     <button class="btn btn--primary" (click)="invokeAction()" [disabled]="title.invalid">{{ 'COMMON.ADD' | translate }}</button>

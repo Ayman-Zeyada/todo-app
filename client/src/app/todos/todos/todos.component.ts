@@ -50,8 +50,11 @@ export class TodosComponent implements OnInit {
     this.modalService.open(this.addEditTodoModalId);
   }
 
-  closeModal(id: string): void {
+  closeModal(id: string, resetTitleControl?: boolean): void {
     this.modalService.close(id);
+    if (resetTitleControl) {
+      this.initTitleControl();
+    }
   }
 
   addTodo(): void {
