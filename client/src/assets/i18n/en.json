@@ -9,7 +9,10 @@
     "DELETE_TODO": "Delete Todo!",
     "ARE_YOU_SURE": "Are you sure you want to delete it?",
     "TITLE": "Title",
-    "YOU_DONT_HAVE": "You don't have any todos yet"
+    "YOU_DONT_HAVE": "You don't have any todos yet",
+    "ADDED_SUCCESS": "Added Successfully",
+    "UPDATED_SECCESS": "Updated Successfully",
+    "DELETED_SUCCESS": "Deleted Successfully"
   },
   "FORM": {
     "REQUIRED_FIELD": "This is required"

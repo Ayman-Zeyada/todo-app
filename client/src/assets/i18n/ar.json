@@ -9,7 +9,10 @@
     "DELETE_TODO": "احذف مهمة!",
     "ARE_YOU_SURE": "هل أنت متأكد من أنك تريد حذفها؟",
     "TITLE": "العنوان",
-    "YOU_DONT_HAVE": "ليس لديك أي مهمات حتى الآن"
+    "YOU_DONT_HAVE": "ليس لديك أي مهمات حتى الآن",
+    "ADDED_SUCCESS": "تمت الإضافة بنجاح",
+    "UPDATED_SECCESS": "تم التعديل بنجاح",
+    "DELETED_SUCCESS": "تم الحذف بنجاح"
   },
   "FORM": {
     "REQUIRED_FIELD": "هذا الحقل مطلوب"
