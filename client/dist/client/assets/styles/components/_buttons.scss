@@ -51,4 +51,8 @@ button {
       background-color: darken($color: $warning, $amount: 10%);
     }
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }

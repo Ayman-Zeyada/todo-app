@@ -5,22 +5,22 @@ import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { ModalComponent } from './modal/modal.component';
 import { DayHeaderComponent } from './day-header/day-header.component';
 import { DayHeaderPipe } from './pipes/day-header.pipe';
-import { AutoFocusDirective } from './directives/auto-focus.directive';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
   declarations: [
     ModalComponent,
     DayHeaderComponent,
     DayHeaderPipe,
-    AutoFocusDirective,
+    ClickOutsideDirective,
   ],
   imports: [CommonModule, TranslateModule],
   exports: [
     ModalComponent,
     DayHeaderComponent,
-    AutoFocusDirective,
     TranslateModule,
-    TranslatePipe
+    TranslatePipe,
+    ClickOutsideDirective
   ],
 })
 export class SharedModule {}

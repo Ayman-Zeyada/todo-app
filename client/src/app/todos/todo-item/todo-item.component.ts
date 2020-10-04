@@ -20,11 +20,14 @@ export class TodoItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.title = new FormControl(this.todo.title, Validators.required);
-    console.log(this.todo);
   }
 
   openActions(): void {
     this.actionsOpened = !this.actionsOpened;
+  }
+
+  onClickOutside(): void {
+    this.actionsOpened = false;
   }
 
   onKeyDown(event: KeyboardEvent): void {

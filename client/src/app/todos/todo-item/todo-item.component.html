@@ -1,6 +1,6 @@
 <div class="todo" [class.todo--done]="todo.isDone">
   <div class="todo__title">{{ todo.title }}</div>
-  <div class="todo__actions" [class.todo__actions--opened]="actionsOpened">
+  <div class="todo__actions" [class.todo__actions--opened]="actionsOpened" appClickOutside (clickOutside)="onClickOutside()">
     <button
       class="btn btn--link btn--more"
       (click)="openActions()"
