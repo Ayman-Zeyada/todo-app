@@ -1,3 +1,5 @@
+@import '../../../assets/styles/helpers/variables';
+
 app-modal {
   display: none;
 
@@ -12,24 +14,27 @@ app-modal {
 
     &__content {
       max-width: 80%;
-      margin:  auto;
+      margin: auto;
       animation-name: sildeDown;
       animation-duration: 0.3s;
       transform: translate(0, 50px);
     }
-    &__body, &__header, &__footer {
+    &__body,
+    &__header,
+    &__footer {
       padding: 1rem;
       background-color: #fff;
     }
     &__header {
       color: #fff;
-      background-color: #273c75;
-      border-top-left-radius: 0.3rem;
-      border-top-right-radius: 0.3rem;
+      background-color: $primary-color;
+      font-size: 1.3rem;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
     }
     &__footer {
-      border-bottom-left-radius: 0.3rem;
-      border-bottom-right-radius: 0.3rem;
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -56,6 +61,12 @@ app-modal {
         max-width: 350px;
       }
     }
+
+    &--warning {
+      .modal__header {
+        background-color: $warning;
+      }
+    }
   }
 
   .modal-overlay {
@@ -70,8 +81,26 @@ app-modal {
   }
 }
 
-body.body__modal--open {
-  overflow: hidden;
+body {
+  &.body__modal--open {
+    overflow: hidden;
+  }
+
+  &.body--rtl {
+    app-modal {
+      .modal {
+        &__footer {
+          .btn {
+            margin-left: 0.5rem;
+            margin-right: 0;
+            &:last-child {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @keyframes sildeDown {

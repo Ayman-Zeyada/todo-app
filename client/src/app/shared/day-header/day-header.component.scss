@@ -1,16 +1,32 @@
 .day-header {
-    display: flex;
-    align-items: center;
-    padding: 2rem 1rem 1rem;
-    text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
+  text-transform: uppercase;
+  &__day-date {
+    font-size: 3rem;
+    margin-right: 0.5rem;
+  }
+  &__day-date,
+  &__month,
+  &__day-name {
+    font-weight: 600;
+  }
+  &__day-name {
+    margin-left: auto;
+  }
+}
+
+::ng-deep .body--rtl {
+  .day-header {
+    padding: 1rem 1rem 0;
     &__day-date {
-        font-size: 3rem;
-        margin-right: 0.5rem;
-    }
-    &__day-date, &__month, &__day-name {
-        font-weight: 600;
+      margin-left: 0.5rem;
+      margin-right: 0;
     }
     &__day-name {
-        margin-left: auto;
+      margin-left: initial;
+      margin-right: auto;
     }
+  }
 }

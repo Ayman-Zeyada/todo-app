@@ -1,18 +1,29 @@
-@import '../../../assets/styles/helpers/variables';
+@import "../../../assets/styles/helpers/variables";
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.75rem 1rem;
-    background-color: #273c75;
-    color: #fff;
-    h1 {
-        font-size: 2rem;
-        font-weight: bold;
-    }
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: $primary-color;
+  color: #fff;
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
 
-    .btn {
-        font-family: $arabic-font-family;
-        color: #fff;
+  .btn {
+    font-family: $arabic-font-family;
+    color: #fff;
+  }
+}
+
+::ng-deep .body--rtl {
+  .header {
+    &__title {
+      font-size: 1.4rem;
     }
+    .btn {
+      font-family: $english-font-family;
+    }
+  }
 }

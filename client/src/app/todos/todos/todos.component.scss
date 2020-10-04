@@ -1,3 +1,5 @@
+@import '../../../assets/styles/helpers/variables';
+
 :host {
   flex-grow: 1;
   display: block;
@@ -28,7 +30,7 @@
   &__main {
     max-width: 600px;
     height: 100%;
-    border-radius: 0.3rem;
+    border-radius: $border-radius;
     background-color: #fff;
     margin: 0 auto;
     padding-bottom: 2rem;
@@ -40,6 +42,10 @@
       background-color: #fff;
     }
   }
+  &__message {
+    font-size: 1.2rem;
+    text-align: center;
+  }
   .btn-wrapper {
     position: absolute;
     bottom: 0.5rem;
@@ -47,30 +53,21 @@
     .btn {
       position: relative;
       left: -50%;
-      font-size: 2rem;
+      font-size: 1.5rem;
       transition: all 0.2s ease-in;
-      background-color: #273c75;
-      color: #fff;
+      background-color: $primary-color;
+      color: $primary-color-dark;
       &:hover {
         transition: background-color 0.2s ease-in;
-        background-color: lighten($color: #273c75, $amount: 20%);
+        background-color: darken($color: $primary-color, $amount: 20%);
       }
     }
   }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+::ng-deep .body--rtl {
+  .todos {
+    direction: rtl;
+  }
+}
 

@@ -11,6 +11,7 @@ import { ModalService } from './modal.service';
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
   @Input() size: string;
+  @Input() type: string;
   @Input() dismissable: boolean;
 
   private element: any;
@@ -26,11 +27,15 @@ export class ModalComponent implements OnInit, OnDestroy {
       return;
     }
 
+    const modal = this.element.querySelector('.modal');
     this.renderer.appendChild(document.body, this.element);
 
     if (this.size) {
-      const modal = this.element.querySelector('.modal');
       this.renderer.addClass(modal, `modal--${this.size}`);
+    }
+
+    if (this.type) {
+      this.renderer.addClass(modal, `modal--${this.type}`);
     }
 
     this.element.addEventListener('click', (el) => {

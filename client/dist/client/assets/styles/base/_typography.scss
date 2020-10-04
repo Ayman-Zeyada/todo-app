@@ -26,7 +26,11 @@ html {
 
 body {
   font-family: $english-font-family;
+  &.body--rtl {
+    font-family: $arabic-font-family;
+  }
 }
+
 h1 {
   font-size: 4rem;
 }
