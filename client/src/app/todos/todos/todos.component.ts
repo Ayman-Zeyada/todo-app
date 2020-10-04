@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 
 import { Todo, TodoToBeEdited } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
-import { ModalService } from 'src/app/shared/modal/modal.service';
+import { ModalService } from 'src/app/shared/components/modal/modal.service';
 
 @Component({
   selector: 'app-todos',
