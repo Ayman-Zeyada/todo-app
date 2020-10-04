@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap");
+
+// font-family: 'Cairo', sans-serif;
+html {
+  font-size: 12px;
+  @media only screen and (min-width: 600px) {
+      font-size: 13px;
+  }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    font-size: 15px;
+  }
+
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  font-family: $english-font-family;
+}
+h1 {
+  font-size: 4rem;
+}
