@@ -6,15 +6,13 @@ import { ModalComponent } from './components/modal/modal.component';
 import { DayHeaderComponent } from './components/day-header/day-header.component';
 import { DayHeaderPipe } from './pipes/day-header.pipe';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
-import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
     ModalComponent,
     DayHeaderComponent,
     DayHeaderPipe,
-    ClickOutsideDirective,
-    SnackbarComponent,
+    ClickOutsideDirective
   ],
   imports: [CommonModule, TranslateModule],
   exports: [
@@ -22,8 +20,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
     DayHeaderComponent,
     TranslateModule,
     TranslatePipe,
-    ClickOutsideDirective,
-    SnackbarComponent
+    ClickOutsideDirective
   ],
 })
 export class SharedModule {}

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
 import { Subscription } from 'rxjs';
 
-import { SnackbarType } from '../../enumes/snackbar-type.enum';
+import { SnackbarType } from '../../shared/enumes/snackbar-type.enum';
 import { SnackbarService } from './snackbar.service';
 
 @Component({

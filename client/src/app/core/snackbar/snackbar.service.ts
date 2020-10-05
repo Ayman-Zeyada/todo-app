@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { SnackbarType } from '../../enumes/snackbar-type.enum';
+import { SnackbarType } from '../../shared/enumes/snackbar-type.enum';
 
 export interface SnackbarState {
   show: boolean;

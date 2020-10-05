@@ -1,11 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { SnackbarService } from 'src/app/core/snackbar/snackbar.service';
 
 import { Todo, TodoToBeEdited } from 'src/app/models/todo';
 import { TodoService } from 'src/app/services/todo.service';
 import { ModalService } from 'src/app/shared/components/modal/modal.service';
-import { SnackbarService } from 'src/app/shared/components/snackbar/snackbar.service';
 import { SnackbarType } from 'src/app/shared/enumes/snackbar-type.enum';
 
 @Component({

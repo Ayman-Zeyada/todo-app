@@ -5,6 +5,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { HeaderComponent } from './header/header.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 
 // AoT requires an exported function for factories
@@ -13,7 +14,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, SnackbarComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -25,6 +26,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
   ],
-  exports: [HeaderComponent, TranslateModule],
+  exports: [HeaderComponent, SnackbarComponent],
 })
 export class CoreModule {}
