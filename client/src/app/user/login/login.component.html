@@ -1,0 +1,41 @@
+<div class="form-box">
+  <div class="form-box__box">
+    <h3 class="form-box__title">Login</h3>
+    <form class="form-box__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div
+        class="form-group"
+        [class.form-group--invalid]="
+          email.invalid && (email.dirty || isSubmitted)
+        "
+      >
+        <label class="form-group__label">Email</label>
+        <input type="email" class="form-group__control" [formControl]="email" />
+        <span class="form-group__feedback">{{
+          "FORM.REQUIRED_FIELD" | translate
+        }}</span>
+      </div>
+      <div
+        class="form-group"
+        [class.form-group--invalid]="
+          password.invalid && (password.dirty || isSubmitted)
+        "
+      >
+        <label class="form-group__label">Password</label>
+        <input
+          type="password"
+          class="form-group__control"
+          [formControl]="password"
+        />
+        <span class="form-group__feedback">{{
+          "FORM.REQUIRED_FIELD" | translate
+        }}</span>
+      </div>
+      <div class="form-box__form-footer">
+        <button type="submit" class="btn btn--primary">Submit</button>
+        <p>
+          Don't have an account? <a [routerLink]="['/register']">Register</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

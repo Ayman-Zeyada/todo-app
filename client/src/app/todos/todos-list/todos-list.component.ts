@@ -9,11 +9,11 @@ import { ModalService } from 'src/app/shared/components/modal/modal.service';
 import { SnackbarType } from 'src/app/shared/enumes/snackbar-type.enum';
 
 @Component({
-  selector: 'app-todos',
-  templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss'],
+  selector: 'app-todos-list',
+  templateUrl: './todos-list.component.html',
+  styleUrls: ['./todos-list.component.scss']
 })
-export class TodosComponent implements OnInit {
+export class TodosListComponent implements OnInit {
   @ViewChild('titleInput') titleInput: ElementRef;
   todos: Array<Todo> = [];
   todoToBeEdited: TodoToBeEdited;

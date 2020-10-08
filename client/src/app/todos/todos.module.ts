@@ -3,20 +3,19 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
-import { TodosComponent } from './todos/todos.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { TodosListComponent } from './todos-list/todos-list.component';
+import { TodosRoutingModule } from './todos-routing.module';
 
 @NgModule({
-  declarations: [TodosComponent, TodoItemComponent],
+  declarations: [TodoItemComponent, TodosListComponent],
   imports: [
     CommonModule,
+    TodosRoutingModule,
     NgScrollbarModule,
     SharedModule,
     ReactiveFormsModule
-  ],
-  exports: [
-    TodosComponent
   ]
 })
 export class TodosModule { }

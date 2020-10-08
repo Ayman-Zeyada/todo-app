@@ -1,21 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const path = require("path");
+const config = require('config');
 
-const todos = require("./routes/api/todos");
 const app = express();
-const db = require("./config/keys").mongoURI;
+const db = config.get('mongoURI');
 const port = process.env.PORT || 5000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 mongoose
-  .connect(db)
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
 
-app.use("/api/todos", todos);
+app.use("/api/todos", require("./routes/api/todos"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist/client"));

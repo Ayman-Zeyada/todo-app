@@ -1,9 +1,19 @@
 <header class="header">
   <h1 class="header__title">{{ "HEADER.TODO_APP" | translate }}</h1>
-  <button class="btn btn--link" (click)="changeLang('ar')" *ngIf="currentUsedLanguage === 'en'">
-    {{ "HEADER.LANG_BUTTON_AR" | translate }}
-  </button>
-  <button class="btn btn--link" (click)="changeLang('en')" *ngIf="currentUsedLanguage === 'ar'">
-    {{ "HEADER.LANG_BUTTON_EN" | translate }}
-  </button>
+
+  <ul class="nav">
+    <li class="nav__link" *ngIf="currentUsedLanguage === 'en'">
+      <button class="btn btn--link" (click)="changeLang('ar')">
+        {{ "HEADER.LANG_BUTTON_AR" | translate }}
+      </button>
+    </li>
+    <li class="nav__link" *ngIf="currentUsedLanguage === 'ar'">
+      <button class="btn btn--link" (click)="changeLang('en')">
+        {{ "HEADER.LANG_BUTTON_EN" | translate }}
+      </button>
+    </li>
+    <li class="nav__link" *ngIf="currentUser">
+      <button class="btn btn--link" (click)="logout()">Logout</button>
+    </li>
+  </ul>
 </header>

@@ -1,0 +1,67 @@
+<section class="todos">
+    <div class="todos__main">
+      <app-day-header [dayDate]="today"></app-day-header>
+      <ng-scrollbar class="scroll-event" thumbClass="white-scrollbars">
+        <div class="todos__list">
+          <p class="todos__message" *ngIf="!todos.length">{{ 'TODOS.YOU_DONT_HAVE' | translate }}</p>
+          <app-todo-item
+            *ngFor="let todo of todos; let index = index"
+            [todo]="todo"
+            (deleteTodo)="onDelete(todo, index)"
+            (editTodo)="onEdit(todo, index)"
+          ></app-todo-item>
+        </div>
+      </ng-scrollbar>
+    </div>
+    <div class="btn-wrapper">
+      <button class="btn btn--circle" (click)="openModal(false)">
+        <i class="icon-plus"></i>
+      </button>
+    </div>
+    <div class="body-bg"></div>
+  </section>
+  
+  <app-modal [id]="addEditTodoModalId" [size]="'sm'" [dismissable]="false">
+    <div class="modal__header">
+      <h4>{{ 'TODOS.ADD_NEW_TODO' | translate }}</h4>
+    </div>
+    <div class="modal__body">
+      <div
+        class="form-group"
+        [class.form-group--invalid]="title.invalid && title.dirty"
+      >
+        <label for="title" class="form-group__label">{{ 'TODOS.TITLE' | translate }}</label>
+        <input
+          type="text"
+          id="title"
+          #titleInput
+          class="form-group__control"
+          autocomplete="off"
+          [formControl]="title"
+        />
+        <span class="form-group__feedback">{{ 'FORM.REQUIRED_FIELD' | translate }}</span>
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--secondary" (click)="closeModal(addEditTodoModalId, true)">
+        {{ 'COMMON.CANCEL' | translate }}
+      </button>
+      <button class="btn btn--primary" (click)="invokeAction()" [disabled]="title.invalid">{{ 'COMMON.ADD' | translate }}</button>
+    </div>
+  </app-modal>
+  
+  <app-modal [id]="confirmationModalId" [size]="'sm'" [type]="'warning'" [dismissable]="true">
+    <div class="modal__header">
+      <h4>{{ 'TODOS.DELETE_TODO' | translate }}</h4>
+    </div>
+    <div class="modal__body">
+      {{ 'TODOS.ARE_YOU_SURE' | translate }}
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--secondary" (click)="closeModal(confirmationModalId)">
+        {{ 'COMMON.CANCEL' | translate }}
+      </button>
+      <button class="btn btn--warning" (click)="deleteTodo()">{{ 'COMMON.YES' | translate }}</button>
+    </div>
+  </app-modal>
+  
