@@ -2,7 +2,8 @@
   "HEADER": {
     "TODO_APP": "Todo List",
     "LANG_BUTTON_AR": "العربية",
-    "LANG_BUTTON_EN": "English"
+    "LANG_BUTTON_EN": "English",
+    "LOGOUT": "Logout"
   },
   "TODOS": {
     "ADD_NEW_TODO": "Add New Todo!",
@@ -15,6 +16,14 @@
     "DELETED_SUCCESS": "Deleted Successfully"
   },
   "FORM": {
+    "LOGIN": "Login",
+    "EMAIL": "Email",
+    "NAME": "Name",
+    "PASSWORD": "Password",
+    "SUBMIT": "Submit",
+    "DONT_HAVE_ACCOUNT": "Don't have an account?",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+    "REGISTER": "Register",
     "REQUIRED_FIELD": "This is required"
   },
   "DAYS": {

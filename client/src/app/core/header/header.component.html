@@ -13,7 +13,7 @@
       </button>
     </li>
     <li class="nav__link" *ngIf="currentUser">
-      <button class="btn btn--link" (click)="logout()">Logout</button>
+      <button class="btn btn--link" (click)="logout()">{{ "HEADER.LOGOUT" | translate }}</button>
     </li>
   </ul>
 </header>

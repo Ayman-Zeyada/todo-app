@@ -1,14 +1,18 @@
 <div class="form-box">
   <div class="form-box__box">
-    <h3 class="form-box__title">Login</h3>
-    <form class="form-box__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h3 class="form-box__title">{{ "FORM.LOGIN" | translate }}</h3>
+    <form
+      class="form-box__form"
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+    >
       <div
         class="form-group"
         [class.form-group--invalid]="
           email.invalid && (email.dirty || isSubmitted)
         "
       >
-        <label class="form-group__label">Email</label>
+        <label class="form-group__label">{{ "FORM.EMAIL" | translate }}</label>
         <input type="email" class="form-group__control" [formControl]="email" />
         <span class="form-group__feedback">{{
           "FORM.REQUIRED_FIELD" | translate
@@ -20,7 +24,9 @@
           password.invalid && (password.dirty || isSubmitted)
         "
       >
-        <label class="form-group__label">Password</label>
+        <label class="form-group__label">{{
+          "FORM.PASSWORD" | translate
+        }}</label>
         <input
           type="password"
           class="form-group__control"
@@ -31,9 +37,12 @@
         }}</span>
       </div>
       <div class="form-box__form-footer">
-        <button type="submit" class="btn btn--primary">Submit</button>
+        <button type="submit" class="btn btn--primary">
+          {{ "FORM.SUBMIT" | translate }}
+        </button>
         <p>
-          Don't have an account? <a [routerLink]="['/register']">Register</a>
+          {{ "FORM.DONT_HAVE_ACCOUNT" | translate }}
+          <a [routerLink]="['/register']">{{ "FORM.REGISTER" | translate }}</a>
         </p>
       </div>
     </form>

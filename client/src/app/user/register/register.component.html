@@ -1,6 +1,6 @@
 <div class="form-box">
   <div class="form-box__box">
-    <h3 class="form-box__title">Register</h3>
+    <h3 class="form-box__title">{{ "FORM.REGISTER" | translate }}</h3>
     <form
       class="form-box__form"
       [formGroup]="registerForm"
@@ -12,7 +12,7 @@
           f.name.invalid && (f.name.dirty || isSubmitted)
         "
       >
-        <label class="form-group__label">Name</label>
+        <label class="form-group__label">{{ "FORM.NAME" | translate }}</label>
         <input type="text" class="form-group__control" formControlName="name" />
         <span class="form-group__feedback">{{
           "FORM.REQUIRED_FIELD" | translate
@@ -24,8 +24,12 @@
           f.email.invalid && (f.email.dirty || isSubmitted)
         "
       >
-        <label class="form-group__label">Email</label>
-        <input type="email" class="form-group__control" formControlName="email" />
+        <label class="form-group__label">{{ "FORM.EMAIL" | translate }}</label>
+        <input
+          type="email"
+          class="form-group__control"
+          formControlName="email"
+        />
         <span class="form-group__feedback">{{
           "FORM.REQUIRED_FIELD" | translate
         }}</span>
@@ -36,7 +40,9 @@
           f.password.invalid && (f.password.dirty || isSubmitted)
         "
       >
-        <label class="form-group__label">Password</label>
+        <label class="form-group__label">{{
+          "FORM.PASSWORD" | translate
+        }}</label>
         <input
           type="password"
           class="form-group__control"
@@ -47,9 +53,12 @@
         }}</span>
       </div>
       <div class="form-box__form-footer">
-        <button type="submit" class="btn btn--primary">Submit</button>
+        <button type="submit" class="btn btn--primary">
+          {{ "FORM.SUBMIT" | translate }}
+        </button>
         <p>
-          Already have an account? <a [routerLink]="['/login']">Login</a>
+          {{ "FORM.ALREADY_HAVE_ACCOUNT" | translate }}
+          <a [routerLink]="['/login']">{{ "FORM.LOGIN" | translate }}</a>
         </p>
       </div>
     </form>

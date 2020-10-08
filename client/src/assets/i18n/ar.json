@@ -2,7 +2,8 @@
   "HEADER": {
     "TODO_APP": "قائمة المهمات",
     "LANG_BUTTON_AR": "العربية",
-    "LANG_BUTTON_EN": "English"
+    "LANG_BUTTON_EN": "English",
+    "LOGOUT": "تسجيل الخروج"
   },
   "TODOS": {
     "ADD_NEW_TODO": "أضف مهمة جديدة!",
@@ -15,6 +16,14 @@
     "DELETED_SUCCESS": "تم الحذف بنجاح"
   },
   "FORM": {
+    "LOGIN": "تسجيل الدخول",
+    "EMAIL": "البريد الإلكتروني",
+    "NAME": "الإسم",
+    "PASSWORD": "كلمة السر",
+    "SUBMIT": "إرسال",
+    "DONT_HAVE_ACCOUNT": "ليس لديك حساب؟",
+    "ALREADY_HAVE_ACCOUNT": "لديك حساب؟",
+    "REGISTER": "أنشىء حساب",
     "REQUIRED_FIELD": "هذا الحقل مطلوب"
   },
   "DAYS": {
