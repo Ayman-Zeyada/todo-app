@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 import { UserResponse } from 'src/app/models/user';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth.service';
+import { StorageService } from '../../storage.service';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
     private translate: TranslateService,
     private renderer: Renderer2,
     private router: Router,
-    public auth: AuthService
+    public auth: AuthService,
+    public storage: StorageService
   ) {}
 
   ngOnInit(): void {
@@ -28,6 +30,7 @@ export class HeaderComponent implements OnInit {
   changeLang(lang: string): void {
     this.translate.use(lang);
     this.currentUsedLanguage = lang;
+    this.storage.setCurrentLang(lang);
     if (lang === 'en') {
       this.renderer.setAttribute(document.body, 'dir', 'ltr');
       this.renderer.removeClass(document.body, 'body--rtl');

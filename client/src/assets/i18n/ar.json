@@ -12,7 +12,7 @@
     "TITLE": "العنوان",
     "YOU_DONT_HAVE": "ليس لديك أي مهمات حتى الآن",
     "ADDED_SUCCESS": "تمت الإضافة بنجاح",
-    "UPDATED_SECCESS": "تم التعديل بنجاح",
+    "UPDATED_SUCCESS": "تم التعديل بنجاح",
     "DELETED_SUCCESS": "تم الحذف بنجاح"
   },
   "FORM": {
@@ -24,7 +24,9 @@
     "DONT_HAVE_ACCOUNT": "ليس لديك حساب؟",
     "ALREADY_HAVE_ACCOUNT": "لديك حساب؟",
     "REGISTER": "أنشىء حساب",
-    "REQUIRED_FIELD": "هذا الحقل مطلوب"
+    "REQUIRED_FIELD": "هذا الحقل مطلوب",
+    "INVALID_EMAIL_PASSWORD": "خطأ في البريد الإلكتروني أو كلمة السر",
+    "USER_ALREADY_EXISTS": "المستخدم موجود من قبل"
   },
   "DAYS": {
     "SUNDAY": "الأحد",

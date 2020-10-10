@@ -1,4 +1,12 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewEncapsulation,
+} from '@angular/core';
 
 import { ModalService } from './modal.service';
 
@@ -6,7 +14,7 @@ import { ModalService } from './modal.service';
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent implements OnInit, OnDestroy {
   @Input() id: string;
@@ -16,7 +24,11 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   private element: any;
 
-  constructor(private modalService: ModalService, private el: ElementRef, private renderer: Renderer2) {
+  constructor(
+    private modalService: ModalService,
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {
     this.element = el.nativeElement;
     this.dismissable = true;
   }

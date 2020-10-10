@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { UserCredentials, UserResponse } from '../models/user';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +12,9 @@ import { UserCredentials, UserResponse } from '../models/user';
 export class AuthService {
   private currentUserSubject: BehaviorSubject<UserResponse>;
   public currentUser: Observable<UserResponse>;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private storageService: StorageService) {
     this.currentUserSubject = new BehaviorSubject<UserResponse>(
-      JSON.parse(localStorage.getItem('currentUser'))
+      this.storageService.getCurrentUser()
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -28,7 +29,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('currentUser');
+    this.storageService.removeCurrentUser();
     this.currentUserSubject.next(null);
   }
 
@@ -37,7 +38,7 @@ export class AuthService {
   }
 
   setCurrentUser(user: UserResponse): void {
-    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.storageService.setCurrentUser(user);
     this.currentUserSubject.next(user);
   }
 }

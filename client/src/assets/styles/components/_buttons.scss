@@ -18,6 +18,8 @@ button {
   transition: background-color 0.2s ease-in-out;
   &--link {
     background-color: transparent;
+    min-width: auto;
+    padding: 0;
   }
   &--circle {
     display: flex;

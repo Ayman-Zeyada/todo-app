@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
-const config = require('config');
+const config = require("config");
 
 const app = express();
-const db = config.get('mongoURI');
+const db = config.get("mongoURI");
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
@@ -12,7 +12,8 @@ app.use(express.json());
 mongoose
   .connect(db, {
     useNewUrlParser: true,
-    useCreateIndex: true
+    useCreateIndex: true,
+    useUnifiedTopology: true,
   })
   .then(() => console.log("mongoDB Connected..."))
   .catch((err) => console.log(err));
@@ -25,7 +26,9 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/dist/client"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "dist", "client", "index.html"));
+    res.sendFile(
+      path.resolve(__dirname, "client", "dist", "client", "index.html")
+    );
   });
 }
 

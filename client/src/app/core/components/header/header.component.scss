@@ -1,7 +1,8 @@
-@import "../../../assets/styles/helpers/variables";
+@import "../../../../assets/styles/helpers/variables";
 
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
   background-color: $primary-color;
@@ -19,9 +20,6 @@
 
 ::ng-deep .body--rtl {
   .header {
-    &__title {
-      font-size: 1.4rem;
-    }
     .btn {
       font-family: $english-font-family;
     }

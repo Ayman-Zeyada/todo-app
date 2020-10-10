@@ -1,5 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,10 +7,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import * as bcrypt from 'bcryptjs';
 
 import { AuthService } from 'src/app/core/auth.service';
-import { UserPayload } from 'src/app/models/user';
+import { SpinnerService } from 'src/app/core/components/spinner/spinner.service';
 
 @Component({
   selector: 'app-login',
@@ -19,13 +17,16 @@ import { UserPayload } from 'src/app/models/user';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('spinnerWrapper') spinnerWrapper: ElementRef;
   loginForm: FormGroup;
   isSubmitted = false;
+  showErrorMessage: boolean;
 
   constructor(
     private auth: AuthService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private spinner: SpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -42,15 +43,18 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.spinner.show(this.spinnerWrapper.nativeElement);
     this.auth
       .login(this.loginForm.value)
       .pipe(first())
       .subscribe({
         next: () => {
+          this.spinner.hide();
           this.router.navigate(['/todos']);
         },
-        error: (error) => {
-          console.log(error);
+        error: () => {
+          this.spinner.hide();
+          this.showErrorMessage = true;
         },
       });
   }

@@ -4,8 +4,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HeaderComponent } from './header/header.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 
 // AoT requires an exported function for factories
@@ -14,7 +15,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [HeaderComponent, SnackbarComponent],
+  declarations: [HeaderComponent, SnackbarComponent, SpinnerComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -26,6 +27,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
   ],
-  exports: [HeaderComponent, SnackbarComponent],
+  exports: [HeaderComponent, SnackbarComponent, SpinnerComponent],
 })
 export class CoreModule {}

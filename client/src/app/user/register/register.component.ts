@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/core/auth.service';
-import { UserPayload } from 'src/app/models/user';
+import { SpinnerService } from 'src/app/core/components/spinner/spinner.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,15 +12,17 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  @ViewChild('spinnerWrapper') spinnerWrapper: ElementRef;
   registerForm: FormGroup;
   isSubmitted: boolean;
+  showErrorMessage: boolean;
 
   constructor(
     private auth: AuthService,
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private spinner: SpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -41,10 +43,16 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    this.spinner.show(this.spinnerWrapper.nativeElement);
+
     this.userService.signUp(this.registerForm.value)
       .subscribe(res => {
         this.auth.setCurrentUser(res);
         this.router.navigate(['/todos']);
+        this.spinner.hide();
+      }, (err) => {
+        this.showErrorMessage = true;
+        this.spinner.hide();
       });
   }
 }

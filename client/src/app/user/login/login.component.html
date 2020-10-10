@@ -1,6 +1,12 @@
 <div class="form-box">
-  <div class="form-box__box">
+  <div class="form-box__box" #spinnerWrapper>
     <h3 class="form-box__title">{{ "FORM.LOGIN" | translate }}</h3>
+    <app-alert-message
+      *ngIf="showErrorMessage"
+      [type]="'danger'"
+      [message]="'FORM.INVALID_EMAIL_PASSWORD' | translate"
+      (closeAlert)="showErrorMessage = false"
+    ></app-alert-message>
     <form
       class="form-box__form"
       [formGroup]="loginForm"
@@ -13,7 +19,16 @@
         "
       >
         <label class="form-group__label">{{ "FORM.EMAIL" | translate }}</label>
-        <input type="email" class="form-group__control" [formControl]="email" />
+        <div class="input-group">
+          <div class="input-group__icon">
+            <i class="icon-email"></i>
+          </div>
+          <input
+            type="email"
+            class="form-group__control"
+            [formControl]="email"
+          />
+        </div>
         <span class="form-group__feedback">{{
           "FORM.REQUIRED_FIELD" | translate
         }}</span>
@@ -27,11 +42,16 @@
         <label class="form-group__label">{{
           "FORM.PASSWORD" | translate
         }}</label>
-        <input
-          type="password"
-          class="form-group__control"
-          [formControl]="password"
-        />
+        <div class="input-group">
+          <div class="input-group__icon">
+            <i class="icon-key"></i>
+          </div>
+          <input
+            type="password"
+            class="form-group__control"
+            [formControl]="password"
+          />
+        </div>
         <span class="form-group__feedback">{{
           "FORM.REQUIRED_FIELD" | translate
         }}</span>

@@ -12,7 +12,7 @@
     "TITLE": "Title",
     "YOU_DONT_HAVE": "You don't have any todos yet",
     "ADDED_SUCCESS": "Added Successfully",
-    "UPDATED_SECCESS": "Updated Successfully",
+    "UPDATED_SUCCESS": "Updated Successfully",
     "DELETED_SUCCESS": "Deleted Successfully"
   },
   "FORM": {
@@ -24,7 +24,9 @@
     "DONT_HAVE_ACCOUNT": "Don't have an account?",
     "ALREADY_HAVE_ACCOUNT": "Already have an account?",
     "REGISTER": "Register",
-    "REQUIRED_FIELD": "This is required"
+    "REQUIRED_FIELD": "This is required",
+    "INVALID_EMAIL_PASSWORD": "Invalid email or password",
+    "USER_ALREADY_EXISTS": "User already exists"
   },
   "DAYS": {
     "SUNDAY": "Sunday",

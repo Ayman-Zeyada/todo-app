@@ -14,7 +14,7 @@
     margin: 0 auto;
     padding: 2rem;
     border-radius: $border-radius;
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px 0px rgba(53, 59, 72, 0.5);
   }
   &__form-footer {
     text-align: center;
@@ -36,6 +36,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
+  color: $dark;
   &__label {
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -46,9 +47,8 @@
     border-radius: $border-radius;
     padding: 0.5rem 0.75rem;
     transition: box-shadow 0.2s;
-    margin-bottom: 0.2rem;
     &:focus {
-      box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 0 0.2rem rgba(53, 59, 72, 0.5);
     }
   }
   &__feedback {
@@ -56,15 +56,55 @@
     font-size: 0.8rem;
   }
   &--invalid {
-    color: #c23616;
+    color: $danger;
+    i {
+      color: $danger !important;
+    }
     .form-group__control {
-      border: 1px solid #c23616;
+      border: 1px solid $danger;
       &:focus {
         box-shadow: 0 0 0 0.2rem rgba(194, 53, 22, 0.5);
       }
     }
     .form-group__feedback {
       display: block;
+    }
+  }
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  &__icon {
+    position: absolute;
+    font-size: 1.5rem;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: lighten($color: $dark, $amount: 40%);
+    border-right: 1px solid $gray;
+  }
+  .form-group__control {
+    width: 100%;
+    padding-left: 3.5rem;
+  }
+}
+
+.body--rtl {
+  .input-group {
+    &__icon {
+      left: auto;
+      right: 0;
+      border-right: none;
+      border-left: 1px solid $gray;
+    }
+    .form-group__control {
+      padding-left: 0.75rem;
+      padding-right: 3.5rem;
     }
   }
 }

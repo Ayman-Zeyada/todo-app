@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
 import { Subscription } from 'rxjs';
 
-import { SnackbarType } from '../../shared/enumes/snackbar-type.enum';
+import { StateType } from '../../../shared/enumes/state-type.enum';
 import { SnackbarService } from './snackbar.service';
 
 @Component({
@@ -41,7 +41,7 @@ import { SnackbarService } from './snackbar.service';
 export class SnackbarComponent implements OnInit, OnDestroy {
   show = false;
   private message = 'This is snackbar';
-  private type = SnackbarType.SUCCESS;
+  private type = StateType.SUCCESS;
   private snackbarSubscription: Subscription;
 
   constructor(private snackbarService: SnackbarService) {}
@@ -52,7 +52,7 @@ export class SnackbarComponent implements OnInit, OnDestroy {
         if (state.type) {
           this.type = state.type;
         } else {
-          this.type = SnackbarType.SUCCESS;
+          this.type = StateType.SUCCESS;
         }
         this.message = state.message;
         this.show = state.show;
